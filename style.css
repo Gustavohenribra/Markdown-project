@@ -1,0 +1,137 @@
+@import url('https://fonts.googleapis.com/css2?family=Kameron&display=swap');
+
+:root {
+  touch-action: pan-x pan-y;
+  height: 100%;
+  --frstclr: #262626;
+  --scndclr: #d4e6f4;
+}
+
+body {
+  margin: 0;
+  background-color: var(--frstclr);
+}
+
+html {
+  font-size: max(min(4vh, 4vw));
+  overflow: hidden;
+}
+
+#root {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+#app {
+  display: flex;
+  flex-direction: row;
+}
+
+.titles {
+  width: 100%;
+  text-align: center;
+  padding: 0.5rem;
+  font-size: 1rem;
+  font-family: 'Kameron', sans-serif;
+  color: white;
+}
+
+#editor, #preview {
+  box-sizing: border-box;
+  font-size: 0.75rem;
+  width: calc(50vw - 1.5rem);
+  height: calc(100vh - 3rem);
+  padding: 1rem;
+  font-family: 'Kameron', monospace;
+  border: none;
+  border-radius: 0.25rem;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  background-color: white;
+  color: black;
+}
+
+#editor {
+  resize: none;
+  margin: 0 0.5rem 0.5rem 1rem;
+}
+
+#preview {
+  font-family: 'Kameron', sans-serif;
+  margin: 0 1rem 0.5rem 0.5rem;
+}
+#preview blockquote {
+  border-left: 3px solid var(--frstclr);
+  color: black;
+  padding-left: 5px;
+  margin-left: 25px;
+}
+#preview > p > code {
+  padding: 3px;
+}
+#preview code {
+  background: #e9f2f9;
+  font-size: 0.7rem;
+  font-weight: bold;
+}
+#preview pre {
+  display: block;
+  overflow: auto;
+  background: white;
+  padding: 5px;
+  line-height: 1.2;
+}
+#preview h1 {
+  border-bottom: 2px solid black;
+}
+#preview h2 {
+  border-bottom: 1px solid black;
+}
+#preview table {
+  border-collapse: collapse;
+}
+#preview td,
+#preview th {
+  border: 2px solid var(--frstclr);
+  padding-left: 5px;
+  padding-right: 5px;
+}
+#preview img {
+  display: block;
+  max-width: 90%;
+  margin: 2rem auto;
+}
+
+::-webkit-scrollbar {
+  width: 0.5rem;
+  height: 0;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #2e9cca;
+  border: none;
+  border-radius: 0.5rem;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #7eb6e0;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--scndclr);
+  border-radius: 0 0.5rem 0.5rem 0;
+}
+
+@media (orientation: portrait) {
+  #app {
+    flex-direction: column;
+  }
+  #editor, #preview {
+    width: calc(100vw - 1rem);
+    height: calc(50vh - 3.5rem);
+  }
+  #editor, #preview {
+    margin: 0 0.5rem 0 0.5rem;
+  }
+}
